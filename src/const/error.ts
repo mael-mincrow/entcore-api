@@ -1,0 +1,1 @@
+export const TOKEN_ERROR = new Error("No token available. Please login first.");
