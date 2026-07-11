@@ -1,7 +1,6 @@
 import {NeoRestManager} from "~/rest/RESTManager";
 import {NeoAuthCredentials, NeoAuthToken, NeoAuthScope, NeoAuthSession} from "~/types/auth";
 import {AUTH_TOKEN, AUTH_USERINFO, AUTH_WELCOME} from "~/rest/endpoints";
-import {CLIENT} from "~/const/client";
 import {TOKEN_ERROR} from "~/const/error";
 
 export class NeoAuth {
@@ -55,7 +54,7 @@ export class NeoAuth {
         const token = await this.restManager.post<NeoAuthCredentials>(
             AUTH_TOKEN(),
             {
-                ...CLIENT,
+                ...this.restManager.getOauthHeader(),,
                 refresh_token,
                 grant_type: "refresh_token",
                 scope: Object.values(NeoAuthScope).join(" "),
