@@ -54,7 +54,7 @@ export class NeoAuth {
         const token = await this.restManager.post<NeoAuthCredentials>(
             AUTH_TOKEN(),
             {
-                ...this.restManager.getOauthHeader(),,
+                ...this.restManager.getOauthHeader(),
                 refresh_token,
                 grant_type: "refresh_token",
                 scope: Object.values(NeoAuthScope).join(" "),
